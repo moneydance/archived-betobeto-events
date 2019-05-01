@@ -1,0 +1,5 @@
+export const enum SchemaRegistryClientEnv {
+  USERNAME = 'SCHEMA_REGISTRY_USERNAME',
+  PASSWORD = 'SCHEMA_REGISTRY_PASSWORD',
+  URI = 'SCHEMA_REGISTRY_URI',
+}

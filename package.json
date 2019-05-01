@@ -1,10 +1,18 @@
 {
-  "description": "7bridges Monorepo",
+  "name": "betobeto-events",
+  "description": "beto-beto-events mono repo",
   "author": "Ben Pusey",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettify && npm run test"
+      "pre-commit": "lerna run --parallel prettify && lerna run --parallel test"
     }
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean",
+    "start": "lerna --parallel --scope \"@betobeto/*\" run start",
+    "test": "lerna --stream --scope \"@betobeto/*\" run test",
+    "test:watch": "lerna --parallel --scope \"@betobeto/*\" run test:watch"
   },
   "engines": {
     "node": ">= 8.11.0",
@@ -12,13 +20,12 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
-    "@types/react": "^16.7.18",
-    "@types/react-dom": "^16.0.11",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.9.1",
+    "@types/node": "^11.13.7",
+    "dotenv": "^7.0.0",
+    "fuse-box": "^3.7.1",
     "husky": "^1.2.1",
     "jest": "^23.6.0",
-    "parcel-bundler": "^1.11.0",
+    "lerna": "^3.13.0",
     "prettier": "^1.15.3",
     "ts-jest": "^23.10.5",
     "tslint": "^5.12.0",
@@ -26,9 +33,5 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.2.2"
-  },
-  "dependencies": {
-    "lerna": "^3.13.0"
-  },
-  "name": "7bridges"
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "name": "@betobeto/event-daos",
+  "description": "Betobeto event daos",
+  "version": "1.0.0",
+  "scripts": {
+    "prettify": "prettier --write './src/**/*.{ts,tsx}'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch"
+  },
+  "dependencies": {
+    "@types/pg": "^7.4.14",
+    "env-var": "^4.0.0",
+    "pg": "^7.10.0"
+  }
+}

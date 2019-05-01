@@ -1,0 +1,31 @@
+version: '3.0'
+services:
+    schemaDB:
+        image: postgres
+        environment:
+            - POSTGRES_USER=${SCHEMA_DB_USERNAME}
+            - POSTGRES_PASSWORD=${SCHEMA_DB_PASSWORD}
+        ports:
+            - '${SCHEMA_DB_PORT}:5432'
+    eventDB:
+        image: postgres
+        environment:
+            - POSTGRES_USER=${EVENT_DB_USERNAME}
+            - POSTGRES_PASSWORD=${EVENT_DB_PASSWORD}
+            - POSTGRES_DB=${EVENT_DB_NAME}
+        ports:
+            - '${EVENT_DB_PORT}:5433'
+    schemaRegistry:
+        image: salsify/avro-schema-registry:0.13.3
+        links: 
+            - 'schemaDB:schemaDB'
+        ports:
+            - '${SCHEMA_REGISTRY_PORT}:5000'
+        environment:
+            - DATABASE_URL=postgresql://${SCHEMA_DB_USERNAME}:${SCHEMA_DB_PASSWORD}@schemaDB:${SCHEMA_DB_PORT}/avro
+            - FORCE_SSL=false
+            - SECRET_KEY_BASE=${SCHEMA_REGISTRY_SECRET_KEY_BASE}
+            - SCHEMA_REGISTRY_PASSWORD=${SCHEMA_REGISTRY_PASSWORD}
+            - AUTO_MIGRATE=1
+
+            

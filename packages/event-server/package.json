@@ -1,0 +1,25 @@
+{
+  "name": "@betobeto/event-server",
+  "description": "Betobeto event server",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node ./fuse.js",
+    "prettify": "prettier --write './src/**/*.{ts,tsx}'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch"
+  },
+  "dependencies": {
+    "@betobeto/event-models": "1.0.0",
+    "@betobeto/event-services": "1.0.0",
+    "@types/express": "^4.16.1",
+    "@types/express-graphql": "^0.6.2",
+    "@types/graphql": "^14.2.0",
+    "@types/ws": "^6.0.1",
+    "express": "^4.16.4",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.2.1",
+    "subscriptions-transport-ws": "^0.9.16"
+  }
+}

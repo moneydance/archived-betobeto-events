@@ -1,0 +1,18 @@
+{
+  "name": "@betobeto/event-models",
+  "description": "Betobeto event apis",
+  "version": "1.0.0",
+  "scripts": {
+    "prettify": "prettier --write './src/**/*.{ts,tsx}'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch"
+  },
+  "dependencies": {
+    "@typed/functions": "^2.3.0",
+    "@typed/lenses": "^2.3.0",
+    "@typed/logic": "^2.3.0",
+    "@typed/objects": "^2.3.0"
+  }
+}

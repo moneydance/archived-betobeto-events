@@ -1,0 +1,15 @@
+{
+  "name": "@betobeto/event-services",
+  "description": "Betobeto event services",
+  "version": "1.0.0",
+  "scripts": {
+    "prettify": "prettier --write './src/**/*.{ts,tsx}'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch"
+  },
+  "dependencies": {
+    "@betobeto/event-models": "^1.0.0"
+  }
+}
