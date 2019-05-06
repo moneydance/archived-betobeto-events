@@ -2,14 +2,6 @@
   "name": "@betobeto/event-server",
   "description": "Betobeto event server",
   "version": "1.0.0",
-  "scripts": {
-    "start": "node ./fuse.js",
-    "prettify": "prettier --write './src/**/*.{ts,tsx}'",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "tsc --noEmit --watch"
-  },
   "dependencies": {
     "@betobeto/event-models": "1.0.0",
     "@betobeto/event-services": "1.0.0",

@@ -4,15 +4,15 @@
   "author": "Ben Pusey",
   "husky": {
     "hooks": {
-      "pre-commit": "lerna run --parallel prettify && lerna run --parallel test"
+      "pre-commit": "lerna run --parallel prettify && test"
     }
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "clean": "lerna clean",
-    "start": "lerna --parallel --scope \"@betobeto/*\" run start",
-    "test": "lerna --stream --scope \"@betobeto/*\" run test",
-    "test:watch": "lerna --parallel --scope \"@betobeto/*\" run test:watch"
+    "prettify": "prettier --write './**/src/**/*.{ts,tsx}'",
+    "start": "node ./packages/event-server/fuse.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "engines": {
     "node": ">= 8.11.0",
