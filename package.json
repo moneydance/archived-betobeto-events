@@ -4,7 +4,7 @@
   "author": "Ben Pusey",
   "husky": {
     "hooks": {
-      "pre-commit": "lerna run --parallel prettify && test"
+      "pre-commit": "prettify"
     }
   },
   "scripts": {
