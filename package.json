@@ -4,7 +4,7 @@
   "author": "Ben Pusey",
   "husky": {
     "hooks": {
-      "pre-commit": "prettify"
+      "pre-commit": "yarn prettify"
     }
   },
   "scripts": {
