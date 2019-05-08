@@ -4,5 +4,8 @@
   "version": "1.0.0",
   "dependencies": {
     "@betobeto/event-models": "^1.0.0"
+  },
+  "devDependencies": {
+    "@betobeto/build": "^1.0.0"
   }
 }

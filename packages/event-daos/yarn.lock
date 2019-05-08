@@ -34,6 +34,11 @@ env-var@^4.0.0:
   dependencies:
     is-url "~1.2.2"
 
+fp-ts@^1.17.3:
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-1.17.3.tgz#5064afc4bee8ddcaea567479bfc62d527e015825"
+  integrity sha512-r4gHfAWaRrYPsmdzRl1U9CkpbdOi8fPg5F5KiazAadENz5DKdWEaCDPl2Tf92fvkZGD/ekZ3EHu3gtXIVcsXtA==
+
 is-url@~1.2.2:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/is-url/-/is-url-1.2.4.tgz#04a4df46d28c4cff3d73d01ff06abeb318a1aa52"

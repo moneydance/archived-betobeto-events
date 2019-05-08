@@ -1,5 +1,5 @@
 {
-  "extends": "../../base.tsconfig.json",
+  "extends": "@betobeto/build/base.tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

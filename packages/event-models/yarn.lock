@@ -2,58 +2,7 @@
 # yarn lockfile v1
 
 
-"@typed/core@2.1.0":
-  version "2.1.0"
-  resolved "https://npm.hubteam.com/npm-nexus/repository/npm-all/@typed/core/-/core-2.1.0.tgz#9c0c303bbe83a9979464bd41d8e5e49073cde323"
-  integrity sha512-HXwWLIT5TRI9J56uvYCrIr2vW5PVWzjWoMOmVritvKoLI3sD/8Gl/Zbt64Y+7H9SzSWVWjM4Ql4lpyS3D0rkCw==
-
-"@typed/either@3.3.0":
-  version "3.3.0"
-  resolved "https://npm.hubteam.com/npm-nexus/repository/npm-all/@typed/either/-/either-3.3.0.tgz#070b7ed06b26637e9dd1e96f557120d647f4f3c4"
-  integrity sha512-9eVuy7bR0FmProTsVnC7mqZVlttshhTrRTw1yLwWHB++VcBXxrA17SWOx5VkGUgkzJPZMDe86o1xw/kUivlfNA==
-  dependencies:
-    "@typed/core" "2.1.0"
-    "@typed/functions" "2.3.0"
-
-"@typed/functions@2.3.0", "@typed/functions@^2.3.0":
-  version "2.3.0"
-  resolved "https://npm.hubteam.com/npm-nexus/repository/npm-all/@typed/functions/-/functions-2.3.0.tgz#bca73405c5d320af87a1a405a5ef2643c7c3dd56"
-  integrity sha512-LkEgdwmTE63mf0lZw9iVkqgeumYPduqFLCNqz/anhEa6rsfrRDnrlA0E43ARTsXKxxBR+R7YKzLTJdgD1Sbz8w==
-  dependencies:
-    "@typed/core" "2.1.0"
-
-"@typed/lenses@2.3.0", "@typed/lenses@^2.3.0":
-  version "2.3.0"
-  resolved "https://npm.hubteam.com/npm-nexus/repository/npm-all/@typed/lenses/-/lenses-2.3.0.tgz#cd9161e988c2f0cc48a47916ee523cc4d29ad2a7"
-  integrity sha512-y74OO0uhVM/LD2yRoUx8ZQTAPl9eBdDdoT3PauYHzdxkoLpTwJ1sAvPyoz2IcwxDn8dqTLP3XOaSxpjuztCmhQ==
-  dependencies:
-    "@typed/functions" "2.3.0"
-    "@typed/maybe" "6.0.0"
-
-"@typed/logic@2.3.0", "@typed/logic@^2.3.0":
-  version "2.3.0"
-  resolved "https://npm.hubteam.com/npm-nexus/repository/npm-all/@typed/logic/-/logic-2.3.0.tgz#989a213440036f93e8f2944ececa1b616b21ec46"
-  integrity sha512-QNA4tolHPT68Od7Tligx4hFR1x/Wvmcsrv5TkVzai81G4foGvYNyjUGOow6AiEIoSKeved1ocr3KqcfSw25nGg==
-  dependencies:
-    "@typed/either" "3.3.0"
-    "@typed/functions" "2.3.0"
-    "@typed/maybe" "6.0.0"
-
-"@typed/maybe@6.0.0":
-  version "6.0.0"
-  resolved "https://npm.hubteam.com/npm-nexus/repository/npm-all/@typed/maybe/-/maybe-6.0.0.tgz#47a9c4bed6f488e885f67accaea2ca0b60e498db"
-  integrity sha512-RQMcdGGvsYhgKT8cFhOMKj4onWi1On2MKn50ZiBqdqU3XTF6yqzgDbd2tSDA0etbqq/yXesS0Ukx7YHyveHB9A==
-  dependencies:
-    "@typed/core" "2.1.0"
-    "@typed/functions" "2.3.0"
-
-"@typed/objects@^2.3.0":
-  version "2.3.0"
-  resolved "https://npm.hubteam.com/npm-nexus/repository/npm-all/@typed/objects/-/objects-2.3.0.tgz#9c2d97e7244af920ff465a475efdddd24d6111a0"
-  integrity sha512-qUqq0z2y+gu/ypqJCtgqv6gPsns2aH89usn0h0/a3KHK4v7SOhCG5sAThlAjdall2ZutVQoH8gUHMFs/JtDVbA==
-  dependencies:
-    "@typed/core" "2.1.0"
-    "@typed/functions" "2.3.0"
-    "@typed/lenses" "2.3.0"
-    "@typed/logic" "2.3.0"
-    "@typed/maybe" "6.0.0"
+fp-ts@^1.17.3:
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-1.17.3.tgz#5064afc4bee8ddcaea567479bfc62d527e015825"
+  integrity sha512-r4gHfAWaRrYPsmdzRl1U9CkpbdOi8fPg5F5KiazAadENz5DKdWEaCDPl2Tf92fvkZGD/ekZ3EHu3gtXIVcsXtA==

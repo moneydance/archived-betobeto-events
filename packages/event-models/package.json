@@ -3,9 +3,12 @@
   "description": "Betobeto event apis",
   "version": "1.0.0",
   "dependencies": {
-    "@typed/functions": "^2.3.0",
-    "@typed/lenses": "^2.3.0",
-    "@typed/logic": "^2.3.0",
-    "@typed/objects": "^2.3.0"
+    "fp-ts": "^1.17.3"
+  },
+  "devDependencies": {
+    "@betobeto/build": "^1.0.0"
+  },
+  "scripts": {
+    "build:watch": "webpack --watch --progress"
   }
 }

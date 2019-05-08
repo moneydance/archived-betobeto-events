@@ -13,5 +13,8 @@
     "express-graphql": "^0.8.0",
     "graphql": "^14.2.1",
     "subscriptions-transport-ws": "^0.9.16"
+  },
+  "devDependencies": {
+    "@betobeto/build": "^1.0.0"
   }
 }

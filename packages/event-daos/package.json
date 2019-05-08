@@ -3,8 +3,16 @@
   "description": "Betobeto event daos",
   "version": "1.0.0",
   "dependencies": {
+    "@betobeto/event-models": "^1.0.0",
+    "fp-ts": "^1.17.3",
     "@types/pg": "^7.4.14",
     "env-var": "^4.0.0",
     "pg": "^7.10.0"
+  },
+  "devDependencies": {
+    "@betobeto/build": "^1.0.0"
+  },
+  "scripts": {
+    "build:watch": "webpack --watch --progress"
   }
 }
