@@ -1,10 +1,11 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const makePathTransformer = require('@zerollup/ts-transform-paths')
+const path = require('path')
 
 const pathTransformer = makePathTransformer()
 
-const makeBaseConfig = ({ entry, output, library }) => {
+const makeBaseConfig = ({ entry, output }) => {
   return {
     mode: 'development',
     entry: entry,
@@ -13,7 +14,6 @@ const makeBaseConfig = ({ entry, output, library }) => {
       filename: '[name].js',
     },
     resolve: {
-      symlinks: false,
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
       plugins: [new TsconfigPathsPlugin()],
     },

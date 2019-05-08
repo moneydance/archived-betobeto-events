@@ -23,11 +23,10 @@ const glob = [
   '!src/**/__fixtures__/**/*.ts',
 ]
 
-const makeNodeLibConfig = ({ directory, library }) =>
+const makeNodeLibConfig = ({ directory }) =>
   makeNodeConfig({
     entry: makeEntry(glob, directory),
     output: path.join(directory, 'lib'),
-    library,
   })
 
 module.exports = makeNodeLibConfig

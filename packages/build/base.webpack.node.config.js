@@ -1,8 +1,8 @@
 const makeBaseConfig = require('./base.webpack.config')
 const nodeExternals = require('webpack-node-externals')
 
-const makeNodeConfig = ({ entry, output, library }) => ({
-  ...makeBaseConfig({ entry, output, library }),
+const makeNodeConfig = ({ entry, output }) => ({
+  ...makeBaseConfig({ entry, output }),
   target: 'node',
   externals: [nodeExternals()],
 })
