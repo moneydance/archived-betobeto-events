@@ -9,10 +9,12 @@
     }
   },
   "scripts": {
+    "prepublish": "yarn build",
     "bootstrap": "lerna bootstrap",
     "prettify": "prettier --write './**/src/**/*.{ts,tsx}'",
-    "build:watch": "ttsc --w",
-    "build": "ttsc",
+    "clean": "ttsc -b --clean",
+    "build:watch": "yarn run clean && ttsc -b --watch",
+    "build": "yarn run clean && ttsc -b",
     "test": "jest",
     "test:watch": "jest --watch"
   },
