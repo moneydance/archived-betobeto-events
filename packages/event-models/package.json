@@ -7,8 +7,5 @@
   },
   "devDependencies": {
     "@betobeto/build": "^1.0.0"
-  },
-  "scripts": {
-    "build:watch": "webpack --watch --progress"
   }
 }

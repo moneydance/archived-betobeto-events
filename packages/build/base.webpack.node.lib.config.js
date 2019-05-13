@@ -1,32 +1,23 @@
 const makeNodeConfig = require('./base.webpack.node.config')
 const path = require('path')
-const globby = require('globby')
+const WebpackWatchedGlobEntries = require('webpack-watched-glob-entries-plugin')
 
-const removeExtension = filePath =>
-  filePath.slice(0, -path.extname(filePath).length)
-
-const removeRoot = filePath => {
-  const [, ...rest] = filePath.split(path.sep)
-  return path.join(...rest)
-}
-
-const formatEntryKey = key => removeExtension(removeRoot(key))
-
-const makeEntry = (entry, directory) =>
-  globby
-    .sync(entry, { cwd: directory })
-    .reduce((acc, curr) => ({ ...acc, [formatEntryKey(curr)]: curr }), {})
-
-const glob = [
-  'src/**/*.ts',
-  '!src/**/__tests__/**/*.ts',
-  '!src/**/__fixtures__/**/*.ts',
-]
-
-const makeNodeLibConfig = ({ directory }) =>
-  makeNodeConfig({
-    entry: makeEntry(glob, directory),
+const makeNodeLibConfig = ({ directory, name }) => {
+  const nodeConfig = makeNodeConfig({
+    name,
+    directory,
+    entry: WebpackWatchedGlobEntries.getEntries(
+      path.resolve(directory, 'src/**/*.ts'),
+      {
+        ignore: ['**/__tests__/**/*.ts', '**/__fixtures__/**/*.ts'],
+      }
+    ),
     output: path.join(directory, 'lib'),
   })
+  return {
+    ...nodeConfig,
+    plugins: [...nodeConfig.plugins, new WebpackWatchedGlobEntries()],
+  }
+}
 
 module.exports = makeNodeLibConfig

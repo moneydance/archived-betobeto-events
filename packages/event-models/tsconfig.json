@@ -1,8 +1,7 @@
 {
   "extends": "@betobeto/build/base.tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
     }

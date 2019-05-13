@@ -2,6 +2,7 @@
   "name": "betobeto-events",
   "description": "beto-beto-events mono repo",
   "author": "Ben Pusey",
+  "private": true,
   "husky": {
     "hooks": {
       "pre-commit": "yarn prettify"
@@ -10,7 +11,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "prettify": "prettier --write './**/src/**/*.{ts,tsx}'",
-    "start": "node ./packages/event-server/fuse.js",
+    "build:watch": "webpack --watch",
+    "build": "webpack",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -35,5 +37,8 @@
     "typescript": "^3.2.2",
     "webpack-cli": "^3.3.2",
     "webpack": "^4.30.0"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
