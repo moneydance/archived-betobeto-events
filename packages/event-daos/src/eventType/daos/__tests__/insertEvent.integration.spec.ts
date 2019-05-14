@@ -1,11 +1,11 @@
 import {
   newEventType,
   createdEventType,
-} from '~/eventType/__fixtures__/eventType'
-import { createTable } from '~/eventType/daos/createTable'
-import { insertEvent } from '~/eventType/daos/insertEvent'
-import { dropTable } from '~/eventType/daos/dropTable'
-import { eventDBPool } from '~/common/pools/eventDBPool'
+} from '@betobeto/event-daos/eventType/__fixtures__/eventType'
+import { createTable } from '@betobeto/event-daos/eventType/daos/createTable'
+import { insertEvent } from '@betobeto/event-daos/eventType/daos/insertEvent'
+import { dropTable } from '@betobeto/event-daos/eventType/daos/dropTable'
+import { eventDBPool } from '@betobeto/event-daos/common/pools/eventDBPool'
 
 beforeEach(createTable)
 afterEach(dropTable)

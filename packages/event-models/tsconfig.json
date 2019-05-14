@@ -1,11 +1,7 @@
 {
-  "extends": "@betobeto/build/base.tsconfig.json",
+  "extends": "../../build/tsconfig.base",
   "compilerOptions": {
-    "outDir": "./lib",
-    "rootDir": "./src",
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./src/*"]
-    }
+    "outDir": "./dist",
+    "rootDir": "./src"
   }
 }

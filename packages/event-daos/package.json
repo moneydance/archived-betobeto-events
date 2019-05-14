@@ -10,6 +10,6 @@
     "pg": "^7.10.0"
   },
   "devDependencies": {
-    "@betobeto/build": "^1.0.0"
+    "@betobeto/build-tools": "^1.0.0"
   }
 }

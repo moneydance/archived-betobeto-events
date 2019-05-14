@@ -1,7 +1,0 @@
-{
-  "extends": "@betobeto/build/base.tsconfig.json",
-  "references": [
-    { "path": "./packages/event-models" },
-    { "path": "./packages/event-daos" }
-  ]
-}

@@ -1,5 +1,5 @@
 import { Pool } from 'pg'
-import { eventDBConfig } from '~/common/configs/eventDBConfig'
+import { eventDBConfig } from '@betobeto/event-daos/common/configs/eventDBConfig'
 
 export const eventDBPool = new Pool({
   user: eventDBConfig.username,

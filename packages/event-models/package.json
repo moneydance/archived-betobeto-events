@@ -6,6 +6,6 @@
     "fp-ts": "^1.17.3"
   },
   "devDependencies": {
-    "@betobeto/build": "^1.0.0"
+    "@betobeto/build-tools": "^1.0.0"
   }
 }

@@ -1,9 +1,9 @@
-import { EventType } from '@betobeto/event-models/lib/eventType/interfaces/EventType'
-import { getName } from '@betobeto/event-models/lib/eventType/operators/getName'
-import { makeEventType } from '@betobeto/event-models/lib/eventType/builders/makeEventType'
+import { EventType } from '@betobeto/event-models/eventType/interfaces/EventType'
+import { getName } from '@betobeto/event-models/eventType/operators/getName'
+import { makeEventType } from '@betobeto/event-models/eventType/builders/makeEventType'
 import { Option, fromNullable, none } from 'fp-ts/lib/Option'
 
-import { eventDBPool } from '~/common/pools/eventDBPool'
+import { eventDBPool } from '@betobeto/event-daos/common/pools/eventDBPool'
 
 const QUERY = `
   INSERT INTO event_type (name)

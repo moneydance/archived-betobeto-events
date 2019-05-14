@@ -1,7 +1,7 @@
 export const eventPoolConfig = {}
 
-import { EventDBConfig } from '~/common/interfaces/EventDBConfig'
-import { EventDBConfigEnv } from '~/common/enums/EventDBConfigEnv'
+import { EventDBConfig } from '@betobeto/event-daos/common/interfaces/EventDBConfig'
+import { EventDBConfigEnv } from '@betobeto/event-daos/common/enums/EventDBConfigEnv'
 import { get } from 'env-var'
 
 export const eventDBConfig: EventDBConfig = {
