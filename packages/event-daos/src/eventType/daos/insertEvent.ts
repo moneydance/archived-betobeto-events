@@ -17,7 +17,7 @@ export const insertEvent = (
   const name = getName(eventType)
   return eventDBPool
     .query(QUERY, [name])
-    .then(({ rows: [{ id, name }]}) => {
+    .then(({ rows: [{ id, name }] }) => {
       const eventType = makeEventType({ id, name })
       return fromNullable(eventType)
     })
