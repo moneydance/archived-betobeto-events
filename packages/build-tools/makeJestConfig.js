@@ -3,7 +3,7 @@ const { pathsToModuleNameMapper } = require('ts-jest/utils');
 const makeConfig = ({ tsConfigPath }) => {
   const tsconfig = require(tsConfigPath);
   return ({
-  testMatch:[],
+  testRegex: '\\.spec\\.tsx?$',
   moduleNameMapper: pathsToModuleNameMapper(tsconfig.compilerOptions.paths),
   transform: {
     '\\.tsx?$': 'ts-jest',
