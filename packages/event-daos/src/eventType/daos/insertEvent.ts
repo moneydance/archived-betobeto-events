@@ -20,5 +20,7 @@ export const insertEvent = (
       const eventType = makeEventType({ id, name })
       return fromNullable(eventType)
     })
-    .catch(() => none)
+    .catch(error => {
+      return fromNullable(error)
+    })
 }
