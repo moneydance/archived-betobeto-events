@@ -1,11 +1,9 @@
 const dotenv = require('dotenv')
+const path = require('path')
+const makeJestConfig = require('@betobeto/build-tools/makeJestConfig')
 
 // load environment variables
 dotenv.config({ path: `${__dirname}/.env` })
+const tsConfigPath = path.join(__dirname, 'tsconfig.base.json');
 
-module.exports = {
-  projects: [
-    '<rootDir>/packages/*/jest.unit.config.js',
-    '<rootDir>/packages/*/jest.integration.config.js',
-  ],
-}
+module.exports = makeJestConfig({ tsConfigPath });
