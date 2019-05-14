@@ -1,5 +1,5 @@
 {
-  "name": "@betobeto/build",
+  "name": "@betobeto/build-tools",
   "description": "Betobeto build",
   "version": "1.0.0",
   "dependencies": {

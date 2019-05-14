@@ -1,4 +1,4 @@
-import { EventType } from '~/eventType/interfaces/EventType'
+import { EventType } from '@betobeto/event-models/eventType/interfaces/EventType'
 import { curry } from 'fp-ts/lib/function'
 
 export const setName = curry(

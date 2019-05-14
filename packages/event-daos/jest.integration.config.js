@@ -1,4 +1,4 @@
-const base = require('@betobeto/build/base.jest.integration.config')
+const base = require('@betobeto/build-tools/base.jest.integration.config')
 const pack = require('./package')
 
 module.exports = {

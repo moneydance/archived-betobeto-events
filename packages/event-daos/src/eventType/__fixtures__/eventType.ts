@@ -1,4 +1,4 @@
-import { makeEventType } from '@betobeto/event-models/lib/eventType/builders/makeEventType'
+import { makeEventType } from '@betobeto/event-models/eventType/builders/makeEventType'
 
 export const newEventType = makeEventType({
   name: 'IssaEvent',

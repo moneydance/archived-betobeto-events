@@ -1,4 +1,4 @@
-import { eventDBPool } from '~/common/pools/eventDBPool'
+import { eventDBPool } from '@betobeto/event-daos/common/pools/eventDBPool'
 
 const QUERY = `
   DROP TABLE IF EXISTS event_type
