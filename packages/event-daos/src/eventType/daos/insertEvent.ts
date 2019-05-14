@@ -8,6 +8,7 @@ import { eventDBPool } from '@betobeto/event-daos/common/pools/eventDBPool'
 const QUERY = `
   INSERT INTO event_type (name)
   VALUES ($1)
+  RETURNING id, name
 `
 
 export const insertEvent = (
@@ -16,11 +17,9 @@ export const insertEvent = (
   const name = getName(eventType)
   return eventDBPool
     .query(QUERY, [name])
-    .then(({ rows: [[id, name]] }) => {
+    .then(({ rows: [{ id, name }]}) => {
       const eventType = makeEventType({ id, name })
       return fromNullable(eventType)
     })
-    .catch(error => {
-      return fromNullable(error)
-    })
+    .catch(error => fromNullable(error))
 }
