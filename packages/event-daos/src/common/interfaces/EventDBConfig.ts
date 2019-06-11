@@ -1,4 +1,4 @@
-export interface EventDBConfig {
+export interface EventDbConfig {
   username: string
   password: string
   host: string

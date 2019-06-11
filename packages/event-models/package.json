@@ -3,7 +3,7 @@
   "description": "Betobeto event apis",
   "version": "1.0.0",
   "dependencies": {
-    "fp-ts": "^1.17.3"
+    "fp-ts": "^2.0.0-rc.4"
   },
   "devDependencies": {
     "@betobeto/build-tools": "^1.0.0"
