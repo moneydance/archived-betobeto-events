@@ -1,4 +1,4 @@
-export const enum EventDBConfigEnv {
+export const enum EventDbConfigEnv {
   PASSWORD = 'EVENT_DB_PASSWORD',
   USERNAME = 'EVENT_DB_USERNAME',
   PORT = 'EVENT_DB_PORT',

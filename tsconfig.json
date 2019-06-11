@@ -1,7 +1,7 @@
 {
-  "extends": "@betobeto/build-tools/base.tsconfig.json",
+  "extends": "@betobeto/build-tools/tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@betobeto/event-daos/*": ["packages/event-daos/src/*"],
       "@betobeto/event-models/*": ["packages/event-models/src/*"]

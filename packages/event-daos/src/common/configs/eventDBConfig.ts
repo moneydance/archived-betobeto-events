@@ -1,23 +1,23 @@
 export const eventPoolConfig = {}
 
-import { EventDBConfig } from '@betobeto/event-daos/common/interfaces/EventDBConfig'
-import { EventDBConfigEnv } from '@betobeto/event-daos/common/enums/EventDBConfigEnv'
+import { EventDbConfig } from '@betobeto/event-daos/common/interfaces/EventDbConfig'
+import { EventDbConfigEnv } from '@betobeto/event-daos/common/enums/EventDbConfigEnv'
 import { get } from 'env-var'
 
-export const eventDBConfig: EventDBConfig = {
-  username: get(EventDBConfigEnv.USERNAME)
+export const eventDbConfig: EventDbConfig = {
+  username: get(EventDbConfigEnv.USERNAME)
     .required()
     .asString(),
-  password: get(EventDBConfigEnv.PASSWORD)
+  password: get(EventDbConfigEnv.PASSWORD)
     .required()
     .asString(),
-  host: get(EventDBConfigEnv.HOST)
+  host: get(EventDbConfigEnv.HOST)
     .required()
     .asString(),
-  port: get(EventDBConfigEnv.PORT)
+  port: get(EventDbConfigEnv.PORT)
     .required()
     .asInt(),
-  dbName: get(EventDBConfigEnv.DB_NAME)
+  dbName: get(EventDbConfigEnv.DB_NAME)
     .required()
     .asString(),
 }

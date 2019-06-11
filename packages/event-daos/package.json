@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@betobeto/event-models": "^1.0.0",
-    "fp-ts": "^1.17.3",
+    "fp-ts": "^2.0.0-rc.4",
     "@types/pg": "^7.4.14",
     "env-var": "^4.0.0",
     "pg": "^7.10.0"

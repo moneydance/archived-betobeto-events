@@ -10,7 +10,7 @@ import { pipe } from 'fp-ts/lib/pipeable'
 import { defineFeature, loadFeature } from 'jest-cucumber'
 import { CommonError } from '@betobeto/event-daos/common/interfaces/CommonError'
 
-const feature = loadFeature('./createTable.feature')
+const feature = loadFeature('./dropTable.feature')
 
 defineFeature(feature, test => {
   let context: PgClientContext
@@ -23,14 +23,16 @@ defineFeature(feature, test => {
     await eventDBPool.end()
   })
   afterEach(async () => await run(dropTable(), context))
-
-  test("Create a table when it doesn't exist", ({ given, when, then }) => {
+  test('Drop a table when it does exist', ({ given, when, then }) => {
     let result: Either<CommonError<EventTypeErrorCode>, Boolean>
-    given("a table hasn't been initialized", noop)
-    when('the dao creates a table', async () => {
-      result = await run(createTable(), context)
+    given(
+      'a table has been initialized',
+      async () => await run(createTable(), context)
+    )
+    when('the dao drops a table', async () => {
+      result = await run(dropTable(), context)
     })
-    then('the table should be created', async () =>
+    then('the table should be dropped', () =>
       pipe(
         result,
         map(value => expect(value).toBe(true)),
@@ -38,23 +40,21 @@ defineFeature(feature, test => {
       )
     )
   })
-
-  test('Create a table when it does exist', ({ given, when, then }) => {
+  test("Drop a table when it doesn't exist", ({ given, when, then }) => {
     let result: Either<CommonError<EventTypeErrorCode>, Boolean>
-    given(
-      'a table has been initialized',
-      async () => await run(createTable(), context)
-    )
-    when('the dao creates a table', async () => {
-      result = await run(createTable(), context)
+    given("a table hasn't been initialized", () => noop)
+    when('the dao drops a table', async () => {
+      result = await run(dropTable(), context)
     })
-    then('the dao should receive an error', async () =>
+    then('the dao should receive an error', () =>
       pipe(
         result,
-        map(fail),
-        mapLeft(error =>
-          expect(error.type).toBe(EventTypeErrorCode.EVENT_TYPE_TABLE_EXISTS)
-        )
+        mapLeft(value =>
+          expect(value.type).toBe(
+            EventTypeErrorCode.EVENT_TYPE_TABLE_DOES_NOT_EXIST
+          )
+        ),
+        map(fail)
       )
     )
   })
