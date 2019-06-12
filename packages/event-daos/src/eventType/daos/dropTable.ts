@@ -1,15 +1,16 @@
-import { EventTypeErrorCode } from '@betobeto/event-daos/eventType/enums/EventTypeErrorCode'
-import { makeErrorFactory } from '@betobeto/event-daos/common/builders/makeErrorFactory'
-import { chain, map, ask, fromTaskEither } from 'fp-ts/lib/ReaderTaskEither'
+import { ask, chain, fromTaskEither, map } from 'fp-ts/lib/ReaderTaskEither'
 import { tryCatch } from 'fp-ts/lib/TaskEither'
 import { pipe } from 'fp-ts/lib/pipeable'
+
+import { makeErrorFactory } from '@betobeto/event-daos/common/builders/makeErrorFactory'
 import { PgClientContext } from '@betobeto/event-daos/common/interfaces/PgClientContext'
+import { EventTypeErrorCode } from '@betobeto/event-daos/eventType/enums/EventTypeErrorCode'
 
 const QUERY = `
   DROP TABLE event_type
 `
 
-const makeQueryError = makeErrorFactory(
+const makeEventTypeTableDoesNotExistError = makeErrorFactory(
   EventTypeErrorCode.EVENT_TYPE_TABLE_DOES_NOT_EXIST
 )
 
@@ -19,7 +20,7 @@ export const dropTable = () =>
     chain(({ pgClient }) => {
       const query = tryCatch(
         () => pgClient.query(QUERY),
-        () => makeQueryError()
+        () => makeEventTypeTableDoesNotExistError()
       )
       return fromTaskEither(query)
     }),

@@ -1,13 +1,15 @@
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
 
-const makeConfig = ({ tsConfigPath }) => {
+const makeConfig = ({ rootDir, tsConfigPath }) => {
   const tsconfig = require(tsConfigPath)
   return {
+    rootDir,
     testRegex: '\\.spec\\.tsx?$',
     moduleNameMapper: pathsToModuleNameMapper(tsconfig.compilerOptions.paths),
     transform: {
       '\\.tsx?$': 'ts-jest',
     },
+    moduleDirectories: ['node_modules', 'packages'],
     globals: {
       'ts-jest': {
         compiler: 'ttypescript',
