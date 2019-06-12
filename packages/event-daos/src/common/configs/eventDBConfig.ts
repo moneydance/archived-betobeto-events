@@ -1,6 +1,7 @@
-import { EventDbConfig } from '@betobeto/event-daos/common/interfaces/EventDbConfig'
-import { EventDbConfigEnv } from '@betobeto/event-daos/common/enums/EventDbConfigEnv'
 import { get } from 'env-var'
+
+import { EventDbConfigEnv } from '@betobeto/event-daos/common/enums/EventDbConfigEnv'
+import { EventDbConfig } from '@betobeto/event-daos/common/interfaces/EventDbConfig'
 
 export const eventDbConfig: EventDbConfig = {
   username: get(EventDbConfigEnv.USERNAME)

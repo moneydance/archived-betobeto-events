@@ -1,18 +1,19 @@
-import { loadFeature, defineFeature } from 'jest-cucumber'
 import { map, mapLeft, Either } from 'fp-ts/lib/Either'
 import { run } from 'fp-ts/lib/ReaderTaskEither'
 import { pipe } from 'fp-ts/lib/pipeable'
-import { createTable } from '@betobeto/event-daos/eventType/daos/createTable'
-import { insertEvent } from '@betobeto/event-daos/eventType/daos/insertEvent'
-import { dropTable } from '@betobeto/event-daos/eventType/daos/dropTable'
+import { defineFeature, loadFeature } from 'jest-cucumber'
+
+import { CommonError } from '@betobeto/event-daos/common/interfaces/CommonError'
 import { PgClientContext } from '@betobeto/event-daos/common/interfaces/PgClientContext'
 import { eventDBPool } from '@betobeto/event-daos/common/pools/eventDBPool'
+import { createTable } from '@betobeto/event-daos/eventType/daos/createTable'
+import { dropTable } from '@betobeto/event-daos/eventType/daos/dropTable'
+import { insertEvent } from '@betobeto/event-daos/eventType/daos/insertEvent'
 import { EventTypeErrorCode } from '@betobeto/event-daos/eventType/enums/EventTypeErrorCode'
-import { CommonError } from '@betobeto/event-daos/common/interfaces/CommonError'
 import { makeEventType } from '@betobeto/event-models/eventType/builders/makeEventType'
 import { EventType } from '@betobeto/event-models/eventType/interfaces/EventType'
-import { getName } from '@betobeto/event-models/eventType/operators/getName'
 import { getId } from '@betobeto/event-models/eventType/operators/getId'
+import { getName } from '@betobeto/event-models/eventType/operators/getName'
 
 const feature = loadFeature('./insertEventType.feature')
 

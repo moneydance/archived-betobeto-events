@@ -1,14 +1,15 @@
-import { createTable } from '@betobeto/event-daos/eventType/daos/createTable'
-import { dropTable } from '@betobeto/event-daos/eventType/daos/dropTable'
-import { PgClientContext } from '@betobeto/event-daos/common/interfaces/PgClientContext'
-import { eventDBPool } from '@betobeto/event-daos/common/pools/eventDBPool'
-import { EventTypeErrorCode } from '@betobeto/event-daos/eventType/enums/EventTypeErrorCode'
 import { map, mapLeft, Either } from 'fp-ts/lib/Either'
 import { run } from 'fp-ts/lib/ReaderTaskEither'
 import { constVoid as noop } from 'fp-ts/lib/function'
 import { pipe } from 'fp-ts/lib/pipeable'
 import { defineFeature, loadFeature } from 'jest-cucumber'
+
 import { CommonError } from '@betobeto/event-daos/common/interfaces/CommonError'
+import { PgClientContext } from '@betobeto/event-daos/common/interfaces/PgClientContext'
+import { eventDBPool } from '@betobeto/event-daos/common/pools/eventDBPool'
+import { createTable } from '@betobeto/event-daos/eventType/daos/createTable'
+import { dropTable } from '@betobeto/event-daos/eventType/daos/dropTable'
+import { EventTypeErrorCode } from '@betobeto/event-daos/eventType/enums/EventTypeErrorCode'
 
 const feature = loadFeature('./dropTable.feature')
 
