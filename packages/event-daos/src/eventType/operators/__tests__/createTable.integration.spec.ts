@@ -4,12 +4,13 @@ import { constVoid as noop } from 'fp-ts/lib/function'
 import { pipe } from 'fp-ts/lib/pipeable'
 import { defineFeature, loadFeature } from 'jest-cucumber'
 
-import { CommonError } from '@betobeto/event-daos/common/interfaces/CommonError'
 import { PgClientContext } from '@betobeto/event-daos/common/interfaces/PgClientContext'
 import { eventDBPool } from '@betobeto/event-daos/common/pools/eventDBPool'
-import { createTable } from '@betobeto/event-daos/eventType/daos/createTable'
-import { dropTable } from '@betobeto/event-daos/eventType/daos/dropTable'
 import { EventTypeErrorCode } from '@betobeto/event-daos/eventType/enums/EventTypeErrorCode'
+import { EventTypeTableExistsError } from '@betobeto/event-daos/eventType/interfaces/EventTypeTableExistsError'
+import { UnexpectedPgError } from '@betobeto/event-daos/eventType/interfaces/UnexpectedPgError'
+import { createTable } from '@betobeto/event-daos/eventType/operators/createTable'
+import { dropTable } from '@betobeto/event-daos/eventType/operators/dropTable'
 
 const feature = loadFeature('./createTable.feature')
 
@@ -26,7 +27,7 @@ defineFeature(feature, test => {
   afterEach(async () => await run(dropTable(), context))
 
   test("Create a table when it doesn't exist", ({ given, when, then }) => {
-    let result: Either<CommonError<EventTypeErrorCode>, Boolean>
+    let result: Either<unknown, Boolean>
     given("a table hasn't been initialized", noop)
     when('the dao creates a table', async () => {
       result = await run(createTable(), context)
@@ -41,7 +42,7 @@ defineFeature(feature, test => {
   })
 
   test('Create a table when it does exist', ({ given, when, then }) => {
-    let result: Either<CommonError<EventTypeErrorCode>, Boolean>
+    let result: Either<EventTypeTableExistsError | UnexpectedPgError, unknown>
     given(
       'a table has been initialized',
       async () => await run(createTable(), context)

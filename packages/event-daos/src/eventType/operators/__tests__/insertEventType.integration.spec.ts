@@ -3,13 +3,14 @@ import { run } from 'fp-ts/lib/ReaderTaskEither'
 import { pipe } from 'fp-ts/lib/pipeable'
 import { defineFeature, loadFeature } from 'jest-cucumber'
 
-import { CommonError } from '@betobeto/event-daos/common/interfaces/CommonError'
 import { PgClientContext } from '@betobeto/event-daos/common/interfaces/PgClientContext'
 import { eventDBPool } from '@betobeto/event-daos/common/pools/eventDBPool'
-import { createTable } from '@betobeto/event-daos/eventType/daos/createTable'
-import { dropTable } from '@betobeto/event-daos/eventType/daos/dropTable'
-import { insertEvent } from '@betobeto/event-daos/eventType/daos/insertEvent'
 import { EventTypeErrorCode } from '@betobeto/event-daos/eventType/enums/EventTypeErrorCode'
+import { EventTypeWithNameAlreadyExistsError } from '@betobeto/event-daos/eventType/interfaces/EventTypeWithNameAlreadyExistsError'
+import { UnexpectedPgError } from '@betobeto/event-daos/eventType/interfaces/UnexpectedPgError'
+import { createTable } from '@betobeto/event-daos/eventType/operators/createTable'
+import { dropTable } from '@betobeto/event-daos/eventType/operators/dropTable'
+import { insertEvent } from '@betobeto/event-daos/eventType/operators/insertEvent'
 import { makeEventType } from '@betobeto/event-models/eventType/builders/makeEventType'
 import { EventType } from '@betobeto/event-models/eventType/interfaces/EventType'
 import { getId } from '@betobeto/event-models/eventType/operators/getId'
@@ -30,7 +31,7 @@ defineFeature(feature, test => {
   afterEach(async () => await run(dropTable(), context))
 
   test('Create an event type with a unique name', ({ given, when, then }) => {
-    let result: Either<CommonError<EventTypeErrorCode>, EventType>
+    let result: Either<unknown, EventType>
     given(
       'a table has been initialized',
       async () => await run(createTable(), context)
@@ -59,7 +60,10 @@ defineFeature(feature, test => {
     when,
     then,
   }) => {
-    let result: Either<CommonError<EventTypeErrorCode>, EventType>
+    let result: Either<
+      EventTypeWithNameAlreadyExistsError | UnexpectedPgError,
+      unknown
+    >
     given(
       'a table has been initialized',
       async () => await run(createTable(), context)
