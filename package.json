@@ -6,9 +6,8 @@
     }
   },
   "scripts": {
-    "prettify": "prettier --write './**/src/**/*.{ts,tsx} --list-different'",
+    "prettify": "prettier --write --list-different 'packages/**/*{.ts,.tsx}'",
     "lint": "tslint --fix 'packages/**/*{.ts,.tsx}' --project tsconfig.json",
-    "build": "ttsc",
     "test:unit": "jest --verbose=false --testPathPattern='/__tests__/.*.unit.spec.tsx?$'",
     "test:unit:watch": "jest --verbose=false --watchAll --testPathPattern='/__tests__/.*.unit.spec.tsx?$'",
     "test:integration": "jest --verbose=false --runInBand --testPathPattern='/__tests__/.*.integration.spec.tsx?$'",
