@@ -2,11 +2,10 @@
   "private": true,
   "husky": {
     "hooks": {
-      "pre-commit": "yarn prettify"
+      "pre-commit": "yarn prettify && tslint --fix"
     }
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "prettify": "prettier --write './**/src/**/*.{ts,tsx}'",
     "build": "ttsc",
     "test:unit": "jest --verbose=false --testPathPattern='/__tests__/.*.unit.spec.tsx?$'",
@@ -27,7 +26,6 @@
     "husky": "^1.2.1",
     "jest": "^23.6.0",
     "jest-cucumber": "^2.0.11",
-    "lerna": "^3.13.0",
     "prettier": "^1.15.3",
     "ts-jest": "^23.10.5",
     "ts-loader": "^6.0.0",
